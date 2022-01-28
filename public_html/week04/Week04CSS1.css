@@ -1,0 +1,40 @@
+body {
+    background-color: rgb(55, 61, 61);
+  }
+a:link {
+    font-size: 15px;
+    color: blue;
+}
+a:visited {
+    color:blue;
+    font-size: 15px;
+}
+body {
+    color: white;
+    font-size: 20px;
+    font-family: Arial;
+}
+header {
+    font-family:'Segoe UI';
+    text-align: center;
+    font-size: 45px;
+    color: blue;
+}
+*#stickfigures {
+    cursor: none;
+}
+*#scripture {
+    font-size: 20px;
+}
+
+*#hyunsdojo {
+    color: red;
+}
+
+*#linktotop {
+    font-size: 12px;
+}
+
+*#description {
+    font-family: 'Trebuchet MS';
+}

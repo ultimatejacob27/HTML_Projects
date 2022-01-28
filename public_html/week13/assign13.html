@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimatejacob27</title>
+    <link rel="stylesheet" href="Week08CSS1.css">
+    <script>
+        function register(){
+        }
+        function toggleDuet(){
+            if (document.getElementById("duet").checked){
+                document.getElementById("first_name_2_label").hidden = false;
+                document.getElementById("first_name_2").hidden = false;
+                document.getElementById("last_name_2_label").hidden = false;
+                document.getElementById("last_name_2").hidden = false;
+                document.getElementById("student_id_2_label").hidden = false;
+                document.getElementById("student_id_2").hidden = false;
+                document.getElementById("hiddenbr1").hidden = false;
+                document.getElementById("hiddenbr2").hidden = false;
+                document.getElementById("hiddenbr3").hidden = false;
+                document.getElementById("hiddenbr4").hidden = false;
+                document.getElementById("hiddenbr5").hidden = false;
+                document.getElementById("hiddenbr6").hidden = false;
+            } else {
+                document.getElementById("first_name_2_label").hidden = true;
+                document.getElementById("first_name_2").hidden = true;
+                document.getElementById("last_name_2_label").hidden = true;
+                document.getElementById("last_name_2").hidden = true;
+                document.getElementById("student_id_2_label").hidden = true;
+                document.getElementById("student_id_2").hidden = true;
+                document.getElementById("hiddenbr1").hidden = true;
+                document.getElementById("hiddenbr2").hidden = true;
+                document.getElementById("hiddenbr3").hidden = true;
+                document.getElementById("hiddenbr4").hidden = true;
+                document.getElementById("hiddenbr5").hidden = true;
+                document.getElementById("hiddenbr6").hidden = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Piano Competition Sign Up</h1><br>
+    </header>
+    <a id="indexlink" href="../index.html">Index.html</a><br><br>
+  <form>
+    <input type="radio" id="solo" name="performance" value="Solo" onchange="toggleDuet()">
+    <label for="solo">Solo</label><br>
+    <input type="radio" id="duet" name="performance" value="Duet" onchange="toggleDuet()">
+    <label for="duet">Duet</label><br>
+    <input type="radio" id="concerto" name="performance" value="Concerto" onchange="toggleDuet()">
+    <label for="concerto">Concerto</label><br><br>
+    <label for="first_name">First name:</label><br>
+    <input type="text" id="first_name" name="first_name" required><br>
+    <label for="last_name">Last name:</label><br>
+    <input type="text" id="last_name" name="last_name" required><br>
+    <label for="student_id">Student ID:</label><br>
+    <input type="text" id="student_id" name="student_id" required><br>
+    <label for="first_name_2" id="first_name_2_label" hidden>First name of second student:</label><br id="hiddenbr1" hidden>
+    <input type="text" id="first_name_2" name="first_name_2" hidden><br id="hiddenbr2" hidden>
+    <label for="last_name_2" id="last_name_2_label" hidden>Last name of second student:</label><br id="hiddenbr3" hidden>
+    <input type="text" id="last_name_2" name="last_name_2" hidden><br id="hiddenbr4" hidden>
+    <label for="student_id_2" id="student_id_2_label" hidden>Student ID of second student:</label><br id="hiddenbr5" hidden>
+    <input type="text" id="student_id_2" name="student_id_2" hidden><br id="hiddenbr6" hidden><br>
+    <label >Skill Level</label><br>
+    <input type="radio" id="beginner" name="skill" value="Beginner">
+    <label for="beginner">Beginner</label><br>
+    <input type="radio" id="intermediate" name="skill" value="Intermediate">
+    <label for="intermediate">Intermediate</label><br>
+    <input type="radio" id="pre-advanced" name="skill" value="Pre-advanced">
+    <label for="pre-advanced">Pre-advanced</label><br>
+    <input type="radio" id="advanced" name="skill" value="Advanced">
+    <label for="advanced">Advanced</label><br><br>
+    <label >Instrument</label><br>
+    <input type="radio" id="piano" name="instrument" value="Piano">
+    <label for="piano">Piano</label><br>
+    <input type="radio" id="voice" name="instrument" value="Voice">
+    <label for="voice">Voice</label><br>
+    <input type="radio" id="string" name="instrument" value="String">
+    <label for="string">String</label><br>
+    <input type="radio" id="organ" name="instrument" value="Organ">
+    <label for="organ">Organ</label><br>
+    <input type="radio" id="other" name="instrument" value="Other">
+    <label for="other">Other</label><br><br>
+    <label for="location">Location:</label><br>
+    <input type="text" id="location" name="location" required><br>
+    <label for="room">Room:</label><br>
+    <input type="text" id="room" name="room" required><br>
+    <label for="time_slot">Time slot:</label><br>
+    <input type="text" id="time_slot" name="time_slot" required><br><br>
+    <input type="button" id="register" name="register" value="Resister" onclick="register()">
+    <input type="reset" id="clear" name="clear" value="Clear"><br>
+    <label id="warning"></label><br>
+  </form>
+</body>
+</html>

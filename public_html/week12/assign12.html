@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimatejacob27</title>
+    <script>
+        function checkForm() {
+            var inpObj = document.getElementById("startCity");
+            var valid = true;
+            if (!inpObj.checkValidity()){
+                valid = false;
+                inpObj.focus;
+            }
+            inpObj = document.getElementById("startState");
+            if (!inpObj.checkValidity()){
+                valid = false;
+                inpObj.focus;
+            }
+            inpObj = document.getElementById("endCity");
+            if (!inpObj.checkValidity()){
+                valid = false;
+                inpObj.focus;
+            }
+            inpObj = document.getElementById("endState");
+            if (!inpObj.checkValidity()){
+                valid = false;
+                inpObj.focus;
+            }
+            if (valid == false){
+                document.getElementById("warning").innerHTML = "Correct input before proceeding.";
+            } else {
+                loadFile();
+            }
+        }
+        function loadFile(){
+            var file = "/cgi-bin/cs213/mileageAjaxJSON";
+            file += "?startCity=" + document.getElementById("startCity").value;
+            file += "&startState=" + document.getElementById("startState").value;
+            file += "&endCity=" + document.getElementById("endCity").value;
+            file += "&endState=" + document.getElementById("endState").value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myObj = JSON.parse(this.responseText);
+                    //document.getElementById("displayInfo").innerHTML = this.responseText;
+                    document.getElementById("displayStartCity").innerHTML = myObj.trip.startcity;
+                    document.getElementById("displayStartState").innerHTML = myObj.trip.startstate;
+                    document.getElementById("displayEndCity").innerHTML = myObj.trip.endcity;
+                    document.getElementById("displayEndState").innerHTML = myObj.trip.endstate;
+                    document.getElementById("miles").innerHTML = myObj.trip.miles;
+                }
+            }
+            xhttp.open("GET", file, true)
+            xhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Mileage Calculator
+        </h1><br>
+    </header>
+    <a href="../index.html" >Index.html</a><br><br>
+  <br><hr><br>
+  <form>
+    <input type="button" value="Get Data" onclick="checkForm()" ><br><br>
+    <input type="text" id="startCity" name="startCity" value="Start City" required><br><br>
+    <input type="text" id="startState" name="startState" value="Start State" required><br><br>
+    <input type="text" id="endCity" name="endCity" value="End City" required><br><br>
+    <input type="text" id="endState" name="endState" value="End State" required><br><br>
+  </form>
+<h1 id="warning"> </h1>
+<a>Start City: </a>
+<a id="displayStartCity"> </a><br>
+<a>Start State: </a>
+<a id="displayStartState"> </a><br>
+<a>End City: </a>
+<a id="displayEndCity"> </a><br>
+<a>End State: </a>
+<a id="displayEndState"> </a><br>
+<a>Miles: </a>
+<a id="miles"> </a><br>
+</body>
+</html>

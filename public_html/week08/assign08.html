@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimatejacob27</title>
+    <link rel="stylesheet" href="Week08CSS1.css">
+    <script>
+        function submissionValidation(){
+            var valid = true;
+            var inpObj = document.getElementById("first_name");
+            if (!inpObj.checkValidity()){
+                valid = false;
+                inpObj.focus;
+            }
+            inpObj = document.getElementById("last_name");
+            if (!inpObj.checkValidity()){
+                valid = false;
+                inpObj.focus;
+            }
+            inpObj = document.getElementById("address");
+            if (!inpObj.checkValidity()){
+                valid = false;
+                inpObj.focus;
+            }
+            inpObj = document.getElementById("phone");
+            if (!inpObj.checkValidity()){
+                valid = false;
+                inpObj.focus;
+            }
+            inpObj = document.getElementById("credit_card");
+            if (!inpObj.checkValidity() || inpObj.value == "4"){
+                valid = false;
+                inpObj.focus;
+            }
+            inpObj = document.getElementById("exp_date");
+            if (!inpObj.checkValidity()){
+                valid = false;
+                inpObj.focus;
+            }
+            if (valid == false){
+                document.getElementById("warning").value = "Correct input before proceeding.";
+                break;
+            }
+        }
+            function changeBox(){
+                var total = 7.00;
+                if (document.getElementById("item_0").checked){
+                    total += 0.15;
+                }
+                if (document.getElementById("item_1").checked){
+                    total += 0.15;
+                }
+                if (document.getElementById("item_2").checked){
+                    total += 0.15;
+                }
+                if (document.getElementById("item_3").checked){
+                    total += 0.15;
+                }
+                document.getElementById("total").value = total;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Pizza Order</h1><br>
+    </header>
+    <a id="indexlink" href="../index.html">Index.html</a><br><br>
+  <form onsubmit="submissionValidation()">
+    <label for="first_name">First name:</label><br>
+    <input type="text" id="first_name" name="first_name" required><br>
+    <label for="last_name">Last name:</label><br>
+    <input type="text" id="last_name" name="last_name" required><br>
+    <label for="address">Address (street address, city, state, and zip):</label><br>
+    <input type="textarea" id="address" name="address" required><br>
+    <label for="phone">Phone:</label><br>
+    <input type="text" id="phone" name="phone" required><br><br><br>
+    <input type="checkbox" id="item_0" name="topping0" value="Pepperoni" onchange="changeBox()">
+    <label for="topping0">Pepperoni</label>
+    <input type="checkbox" id="item_1" name="topping1" value="Pineapple" onchange="changeBox()">
+    <label for="topping1">Pineapple</label><br>
+    <input type="checkbox" id="item_2" name="topping2" value="Sausage" onchange="changeBox()">
+    <label for="topping2">Sausage</label>
+    <input type="checkbox" id="item_3" name="topping3" value="Mushrooms" onchange="changeBox()">
+    <label for="topping3">Mushrooms</label><br><br><br>
+    <label for="payment">Total:</label><br>
+    <input type="text" id="total" name="total" value="" readonly><br><br>
+    <input type="radio" id="visa" name="card" value="Visa">
+    <label for="visa">Visa</label><br>
+    <input type="radio" id="mastercard" name="card" value="Mastercard">
+    <label for="mastercard">Mastercard</label><br>
+    <input type="radio" id="american express" name="card" value="American Express">
+    <label for="american express">American Express</label><br><br>
+    <label for="credit_card">Credit Card Number:</label><br>
+    <input type="text" id="credit_card" name="credit_card" pattern="[0-9][0-9][0-9][0-9]\s[0-9][0-9][0-9][0-9]\s[0-9][0-9][0-9][0-9]\s[0-9][0-9][0-9][0-9]" required><br>
+    <label for="exp_date">Credit Card Expiration Date:</label><br>
+    <input type="text" id="exp_date" name="exp_date" pattern="[0-9][0-9][/][0-9][0-9][0-9][0-9]" min="01/2020" max="12/2100" required><br>
+    <input type="reset" id="reset">
+    <input type="submit" id="validate">
+    <label id="warning"></label><br>
+  </form>
+</body>
+</html>

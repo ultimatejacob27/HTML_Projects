@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimatejacob27</title>
+    <link rel="stylesheet" href="Week07CSS1.css">
+    <script>
+        function calculateMonthlyPaymnet(){
+            if(!(document.getElementById("apr").value > 0 && document.getElementById("apr").value < 25)){
+                document.getElementById("payment").value = "Fix APR";
+            } else if (!(document.getElementById("term").value > 0 && document.getElementById("term").value <= 40)) {
+                document.getElementById("payment").value = "Fix Loan Term";
+            } else {
+                var p = document.getElementById("amount").value;
+                var i = document.getElementById("apr").value / 1200;
+                var n = document.getElementById("term").value * 12;
+                var m = p * (i * (Math.pow((i + 1), n))) / ((Math.pow((i + 1), n)) - 1);
+                document.getElementById("payment").value = m;
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Mortgage Calculator</h1><br>
+    </header>
+    <a id="indexlink" href="../index.html">Index.html</a><br><br>
+  <form>
+    <label for="apr">Annual Percentage Rate:</label><br>
+    <input type="text" id="apr" name="apr"><br>
+    <label for="term">Loan Term (in years):</label><br>
+    <input type="text" id="term" name="term"><br>
+    <label for="amount">Loan Amount (in dollars):</label><br>
+    <input type="text" id="amount" name="amount"><br><br><br>
+    <label for="payment">Monthly Payment:</label><br>
+    <input type="text" id="payment" name="payment" value="" readonly><br><br>
+    <input type="reset" id="clear">
+    <input type="button" value="Calculate Payment" onclick="calculateMonthlyPaymnet()">
+  </form>
+</body>
+</html>

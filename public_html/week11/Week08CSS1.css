@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+    font-size:4vw;
+    font-family: 'Times New Roman';
+}
+body{
+    text-align: center;
+    font-size: 15pt;
+    background-color: lightsalmon;
+}
+form {
+    display: inline-block;
+    text-align: left;
+}
+a {
+    text-align: left;
+}

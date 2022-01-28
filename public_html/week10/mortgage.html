@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimatejacob27</title>
+    <script>
+        function calculateMonthlyPaymnet(){
+            if(!(document.getElementById("apr").value > 0 && document.getElementById("apr").value < 25)){
+                document.getElementById("payment").value = "Fix APR";
+            } else if (!(document.getElementById("term").value > 0 && document.getElementById("term").value <= 40)) {
+                document.getElementById("payment").value = "Fix Loan Term";
+            } else {
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Mortgage Calculator</h1><br>
+    </header>
+    <a id="indexlink" href="../index.html">Index.html</a><br><br>
+    <a id="indexlink" href="assign10.html">assign10.html</a><br><br>
+  <form action="mortgage.php" method="GET">
+    <label for="apr">Annual Percentage Rate:</label><br>
+    <input type="text" id="apr" name="apr"><br>
+    <label for="term">Loan Term (in years):</label><br>
+    <input type="text" id="term" name="term"><br>
+    <label for="amount">Loan Amount (in dollars):</label><br>
+    <input type="text" id="amount" name="amount"><br><br><br>
+    <input type="reset" id="clear">
+    <input type="submit" value="Calculate Payment" onclick="calculateMonthlyPaymnet()">
+  </form>
+</body>
+</html>

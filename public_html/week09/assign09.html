@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimatejacob27</title>
+    <link rel="stylesheet" href="Week09CSS1.css">
+    <script>
+        function us() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("population").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "usa.txt", true);
+        xhttp.send(); 
+        }
+        function canada() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("population").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "canada.txt", true);
+        xhttp.send(); 
+        }
+        function mexico() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("population").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "mexico.txt", true);
+        xhttp.send(); 
+        }
+        function russia() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("population").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "russia.txt", true);
+        xhttp.send(); 
+        }
+        function loadFile(){
+            var file = document.getElementById("filename").value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myObj = JSON.parse(this.responseText);
+                    document.getElementById("displayInfo").innerHTML = this.responseText;
+        }
+      }
+  xhttp.open("GET", file, true)
+  xhttp.send();
+}
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Population
+        </h1><br>
+    </header>
+    <a href="../index.html" >Index.html</a><br><br>
+        <input type="radio" id="us" name="country" value="us" onclick="us()">
+        <label for="us">US</label><br>
+        <input type="radio" id="canada" name="country" value="canada" onclick="canada()">
+        <label for="canada">Canada</label><br>
+    <input type="radio" id="mexico" name="country" value="mexico" onclick="mexico()">
+    <label for="mexico">Mexico</label><br>
+    <input type="radio" id="russia" name="country" value="russia" onclick="russia()">
+    <label for="russia">Russia</label><br><br>
+  <h1>Population: </h1>
+  <h1 id="population"> </h1>
+  <br><hr><br>
+  <form>
+      <input type="button" value="Get Data" onclick="loadFile()"><br><br>
+      <input type="text" id="filename" name="filename" value="json.txt"> <br><br>
+</form>
+<h1>File data: </h1>
+<h1 id="displayInfo"> </h1>
+</body>
+</html>
